@@ -1,7 +1,9 @@
-@(message: String)
+@(id: Long)(implicit request: RequestWithUser[AnyContent])
 
-@main("Welcome to Play") {
+@import helper._
 
-    @play20.welcome(message)
-
-}
+<!DOCTYPE Html>
+<html lang="en" ng-app="storeApp">
+<head>
+    <title>Vitra Store</title>
+    <link rel="stylesheet href="
