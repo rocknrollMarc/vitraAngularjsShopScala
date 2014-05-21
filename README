@@ -1,4 +1,11 @@
-This is your new Play application
-=====================================
+Trying to get AngularJS and Play to work together with rest APi
 
-This file will be packaged with your application, when using `play dist`.
+its going to be a shop system.
+
+I want to use the play templates and read in the the store as ANgularJS partials from the public Folder.
+
+Any Help appretiated.
+
+TODO:
+
+Authentication ( Social, and normal)
