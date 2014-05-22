@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                           controllers.Products.index
 
 GET     /jsroutes                   controllers.Application.jsRoutes(varName ?= "jsRoutes")
 

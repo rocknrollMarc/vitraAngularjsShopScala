@@ -1,0 +1,13 @@
+@(products: List[models.Product])
+@if(products.isEmpty) {
+  <p>No Products available yet.</p>
+} else {
+<ul>
+  @products.map { product =>
+                  <li>
+                  <a href="#editoimplement">@product.name</a>
+                  <em>@product.description</em>
+                  </li>
+          }
+</ul>
+}
