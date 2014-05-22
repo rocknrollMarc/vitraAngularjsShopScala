@@ -5,6 +5,7 @@ import play.api.mvc._
 import play.api.Play.current
 import play.modules.reactivemongo._
 import  models._
+import models.Product._
 
 import reactivemongo.api._
 import reactivemongo.bson._
@@ -13,8 +14,25 @@ import reactivemongo.bson.handlers.DefaultBSONHandlers._
 object Application extends Controller with MongoController {
 
   def index = Action {
-    Ok()
+    Ok(views.html.editProduct(Article.form))
   }
+
+  def showCreationForm = Action {
+    Ok(views.html.editProduct(Article.form))    
+  }
+
+  def create = Action { implicit request => 
+    import models.Product._
+    Product.form.bindFromRequest.fold(
+      errors => Ok(views.html.editProduct(None, errors, None)),
+      // if no error, then insert the Product into the products collection
+      products => // save it!
+      colection.insert(Product).map( _ => // we dont care of the last error here (map is called on success)
+      Redirect(routes.Product.index))
+    )
+}
+
+
 
   def list = Action { implicit request =>
     Async {

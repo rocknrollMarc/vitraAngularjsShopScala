@@ -5,7 +5,11 @@
 # Home page
 GET     /                           controllers.Products.index
 
+GET     /products/new               controllers.Products.showCreationForm
+POST    /products/new               controllers.Products.create
+
 GET     /jsroutes                   controllers.Application.jsRoutes(varName ?= "jsRoutes")
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
